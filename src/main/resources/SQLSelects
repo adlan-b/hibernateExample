@@ -1,0 +1,30 @@
+
+Create Table "CourseTeacher":
+CREATE TABLE CourseTeacher(course_id INT, teacher_id INT, PRIMARY KEY(course_id, teacher_id));
+
+Insert data into "CourseTeacher":
+INSERT INTO CourseTeacher(course_id, teacher_id)  SELECT Courses.id as course_id,
+Teachers.id as teacher_id FROM Courses JOIN Teachers ON Teachers.id = Courses.teacher_id;
+
+.................................................
+Create table "LinkedPurchaseList":
+
+CREATE TABLE LinkedPurchaseList(
+student_id INT,
+course_id INT,
+student_name VARCHAR(500),
+course_name VARCHAR(500),
+price INT,
+subscription_date DATETIME,
+PRIMARY KEY(student_id, course_id));
+
+Insert data into "LinkedPurchaseList":
+INSERT INTO LinkedPurchaseList(student_id, course_id) SELECT student_id, course_id FROM Subscriptions;
+
+Еще можно запросом из PurchaseList заполнить остальные поля
+
+...................................................
+
+
+
+
